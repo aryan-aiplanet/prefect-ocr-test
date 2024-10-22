@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "prefect-test"
+version = "0.1.0"
+description = ""
+authors = ["aryan-aiplanet <aryan@aiplanet.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+prefect = "^3.0.5"
+boto3 = "^1.35.36"
+pypdf2 = "^3.0.1"
+python-docx = "^1.1.2"
+azure-ai-formrecognizer = "^3.3.3"
+langchain = "^0.3.3"
+langchain-community = "^0.3.2"
+weaviate-client = "^4.8.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
