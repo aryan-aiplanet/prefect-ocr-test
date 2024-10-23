@@ -67,8 +67,8 @@ def init_s3_client():
 
 @task
 def extract_text_from_pdf(file_path: str) -> str:
-    endpoint = "https://fullstackai.cognitiveservices.azure.com/"
-    key = "d38bcbcda9484b1c9204373fda81d060"
+    endpoint = os.getenv('AZURE_ENDPOINT')
+    key = os.getenv('AZURE_API_KEY')
     
     # Initialize the Document Analysis client
     document_analysis_client = DocumentAnalysisClient(
@@ -131,8 +131,8 @@ def store_documents_in_weaviate(
     retriever_config = {
         "type": "Weaviate",
         "kwargs": {
-            "weaviate_url": "https://weaviate.aimarketplace.co",
-            "weaviate_api_key": "5d92168b96ea4b9bb553b02cd14157b7",
+            "weaviate_url": os.getenv('WEAVIATE_URL'),
+            "weaviate_api_key": os.getenv('WEAVIATE_API_KEY'),
             "index_name": "Id_knowledge_base_testing_c0f13c"
         }
     }
@@ -140,7 +140,7 @@ def store_documents_in_weaviate(
     embedding_config = {
         "type": "HuggingFaceInferenceAPIEmbeddings",
         "kwargs": {
-            "api_key": "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",
+            "api_key": os.getenv('HUGGINGFACE_API_KEY'),
             "model_name": "sentence-transformers/all-MiniLM-L6-v2"
         }
     }
